@@ -5,7 +5,7 @@ const baseURL = process.env.REACT_APP_API_URL;
 
 export const authenticatedClient = (
   autoSignOutHandler: (signInStatus: SignOut) => void,
-  token: string,
+  token: string
 ) => {
   const axiosInstance = axios.create({
     baseURL,
@@ -20,10 +20,10 @@ export const authenticatedClient = (
       if (e.response.status === 401) {
         autoSignOutHandler(SignInStatus.EXPIRED);
       } else if (e.response.status === 500) {
-        alert("서버 오류입니다.");
+        alert('서버 오류입니다. 관리자에게 문의해주세요.');
       }
       return Promise.reject(e);
-    },
+    }
   );
   return axiosInstance;
 };

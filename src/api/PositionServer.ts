@@ -8,16 +8,13 @@ export default class Server {
   authenticatedClient: AxiosInstance;
   constructor(signOutHandler: (signInStatus: SignOut) => void, token: string) {
     this.token = token;
-    this.authenticatedClient = authenticatedClient(
-      signOutHandler,
-      this.token,
-    );
+    this.authenticatedClient = authenticatedClient(signOutHandler, this.token);
   }
 
-  signup =  (
+  signup = (
     username: string,
     password: string,
-    passwordCheck: string,
+    passwordCheck: string
   ): Promise<AxiosResponse<AccountResponse>> => {
     return client.post('/api/users/', {
       username,
@@ -28,7 +25,7 @@ export default class Server {
 
   login = (
     username: string,
-    password: string,
+    password: string
   ): Promise<AxiosResponse<TokenResponse>> => {
     return client.post('/api/users/signin', { username, password });
   };
@@ -40,5 +37,4 @@ export default class Server {
   refreshToken = (token: string): Promise<AxiosResponse<TokenResponse>> => {
     return client.post('/api/users/refresh-token', { token });
   };
-
 }
