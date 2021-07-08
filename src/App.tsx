@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Server from './api/PositionServer';
 import './App.css';
+import ServerContext from './contexts/ServerContext';
+import Login from './modules/account/Login';
 
 function App() {
+  const [userToken, setUserToken] = useState<string>('');
+
+  useEffect(() => {
+    const token = window.localStorage.getItem('token');
+    if (token) {
+      setUserToken(token);
+    } else {
+      setUserToken('');
+    }
+  }, []);
+
+  const server = new Server(() => {}, userToken);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ServerContext.Provider value={{ server }}>
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/main"></Route>
+        </Switch>
+      </Router>
+    </ServerContext.Provider>
   );
 }
 
