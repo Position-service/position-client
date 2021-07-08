@@ -1,0 +1,106 @@
+body {
+  margin: 0 auto;
+  background: #fff;
+  height: 100vh;
+}
+
+.section-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.circle-wrapper {
+  justify-self: center;
+  align-self: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.circle-green {
+  width: 626px;
+  height: 626px;
+  background: transparent url('../img/green-circle@2x.png') center / contain
+    no-repeat;
+  opacity: 1;
+  display: block;
+}
+
+.circle-gray {
+  margin-left: 500px;
+  width: 626px;
+  height: 626px;
+  background: transparent url('../img/gray-circle@2x.png') center / contain
+    no-repeat;
+  opacity: 1;
+  margin-top: -626px;
+  display: block;
+}
+
+.position-logo {
+  position: relative;
+  top: 120px;
+  left: 125px;
+}
+
+h2 {
+  color: #52f25d;
+  text-align: center;
+  margin-top: 0;
+}
+
+.team-list {
+  display: flex;
+  padding: 5px;
+  line-height: 10px;
+  margin: 10px;
+}
+
+.team-name {
+  margin-left: 10px;
+}
+
+.tag-button {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.public-team-list {
+  height: 85%;
+  margin: auto 0;
+  width: 100%;
+}
+
+.public-team-list h2 {
+  margin: auto 0;
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+
+.add-button {
+  color: white;
+  display: flex;
+  margin: auto 0;
+}
+
+.add-button a {
+  margin: auto 0;
+  background-color: #52f25d;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.add-button a:hover {
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  transform: translateY(-7px);
+  box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.3);
+}
