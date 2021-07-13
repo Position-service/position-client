@@ -6,9 +6,9 @@ import { LoginTemplate } from './LoginTemplate';
 const Login: React.FunctionComponent = () => {
   const { server } = useContext(ServerContext);
 
-  const loginHandler = (username: string, password: string) => {
+  const loginHandler = (email: string, password: string) => {
     server
-      .login(username, password)
+      .login(email, password)
       .then((res) => {
         window.localStorage.setItem('token', res.data.token);
       })
@@ -18,10 +18,11 @@ const Login: React.FunctionComponent = () => {
   const signupHandler = (
     username: string,
     password: string,
-    passwordCheck: string
+    passwordCheck: string,
+    nickName: string
   ) => {
     server
-      .signup(username, password, passwordCheck)
+      .signup(username, password, passwordCheck, nickName)
       .then((res) => {})
       .catch((e) => {});
   };

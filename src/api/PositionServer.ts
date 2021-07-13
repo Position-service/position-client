@@ -14,20 +14,22 @@ export default class Server {
   signup = (
     username: string,
     password: string,
-    passwordCheck: string
+    passwordCheck: string,
+    nickName: string
   ): Promise<AxiosResponse<AccountResponse>> => {
     return client.post('/api/users/', {
       username,
       password,
       passwordCheck,
+      nickName,
     });
   };
 
   login = (
-    username: string,
+    email: string,
     password: string
   ): Promise<AxiosResponse<TokenResponse>> => {
-    return client.post('/api/users/signin', { username, password });
+    return client.post('/api/users/signin', { email, password });
   };
 
   verifyToken = (token: string): Promise<AxiosResponse<TokenResponse>> => {
