@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  background: #fff;
+  background: transparent url('../img/background.png') center / cover no-repeat;
   height: 100vh;
 }
 
@@ -19,8 +19,8 @@ body {
 }
 
 .circle-green {
-  width: 626px;
-  height: 626px;
+  width: 57vh;
+  height: 57vh;
   background: transparent url('../img/green-circle@2x.png') center / contain
     no-repeat;
   opacity: 1;
@@ -28,20 +28,26 @@ body {
 }
 
 .circle-gray {
-  margin-left: 500px;
-  width: 626px;
-  height: 626px;
+  margin-left: 46vh;
+  width: 57vh;
+  height: 57vh;
   background: transparent url('../img/gray-circle@2x.png') center / contain
     no-repeat;
   opacity: 1;
-  margin-top: -626px;
+  margin-top: -57vh;
   display: block;
 }
 
 .position-logo {
   position: relative;
-  top: 120px;
-  left: 125px;
+  background: transparent url('../img/position-logo@2x.png') center / contain
+    no-repeat;
+  width: 35vh;
+  height: 35vh;
+  top: 11vh;
+  left: 11vh;
+  z-index: 5;
+  display: block;
 }
 
 h2 {
