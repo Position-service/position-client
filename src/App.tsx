@@ -4,7 +4,7 @@ import Server from './api/PositionServer';
 import './App.css';
 import ServerContext from './contexts/ServerContext';
 import Login from './modules/account/Login';
-import Signup from './modules/account/Signup';
+import SignUp from './modules/account/SignUp';
 
 function App() {
   const [userToken, setUserToken] = useState<string>('');
@@ -28,7 +28,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/signup">
-            <Signup />
+            <SignUp />
           </Route>
           <Route path="/main"></Route>
         </Switch>
