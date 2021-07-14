@@ -2,7 +2,7 @@
 
 ### let's start position!
 
-![main](https://user-images.githubusercontent.com/63248548/125572563-47d666ff-d829-4f1e-a4d7-9c800e8c1ce8.png)
+![main](https://user-images.githubusercontent.com/63248548/125574898-9baa4288-52c1-4c44-9ebc-b3608fa15e7c.png)
 
 ## We introduce position as
 
