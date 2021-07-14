@@ -1,0 +1,11 @@
+.input {
+  width: 38vh;
+  padding-inline-start: 2vh;
+  height: 6vh;
+  border-radius: 3vh;
+  border: 0;
+}
+
+.input:focus {
+  outline: none;
+}
