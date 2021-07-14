@@ -1,14 +1,10 @@
 import React, { ChangeEvent, useState } from 'react';
+import InputField from './components/InputField';
 import './css/Login.css';
 
 interface Props {
   loginHandler: (email: string, password: string) => void;
-  signupHandler: (
-    username: string,
-    password: string,
-    passwordCheck: string,
-    nickName: string
-  ) => void;
+  signupHandler: () => void;
 }
 
 interface State {
@@ -30,27 +26,24 @@ export const LoginTemplate: React.FunctionComponent<Props> = (props: Props) => {
         </div>
         <div className="circle-gray">
           <div className="button-wrapper">
-            <input
-              className="input-email"
+            <InputField
+              name="E-mail"
               value={loginInfo?.email}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                console.log(loginInfo.email);
-                setLoginInfo({ ...loginInfo, email: e.target.value });
+              changeHandler={(input: string) => {
+                setLoginInfo({ ...loginInfo, email: input });
               }}
-              placeholder="E-mail"
             />
-            <input
-              className="input-password"
+            <InputField
+              name="Password"
               value={loginInfo?.password}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setLoginInfo({ ...loginInfo, password: e.target.value });
+              changeHandler={(input: string) => {
+                setLoginInfo({ ...loginInfo, password: input });
               }}
-              placeholder="Password"
             />
             <button className="button-login">
               <p style={{ color: '#fff' }}>Sign In</p>
             </button>
-            <button className="button-signin">
+            <button className="button-signup" onClick={props.signupHandler}>
               <p>Sign Up</p>
             </button>
             <a className="a-password" href="">

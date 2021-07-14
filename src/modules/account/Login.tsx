@@ -9,27 +9,21 @@ const Login: React.FunctionComponent = () => {
   const history = useHistory();
 
   const loginHandler = (email: string, password: string) => {
-    server
-      .login(email, password)
-      .then((res) => {
-        window.localStorage.setItem('token', res.data.token);
-        history.push('/main');
-      })
-      .catch((e) => {});
+    if (!email || !password) {
+      alert('이메일과 패스워드를 입력해 주세요.');
+    } else {
+      server
+        .login(email, password)
+        .then((res) => {
+          window.localStorage.setItem('token', res.data.token);
+          history.push('/main');
+        })
+        .catch((e) => {});
+    }
   };
 
-  const signupHandler = (
-    username: string,
-    password: string,
-    passwordCheck: string,
-    nickName: string
-  ) => {
-    server
-      .signup(username, password, passwordCheck, nickName)
-      .then((res) => {
-        history.push('/signup');
-      })
-      .catch((e) => {});
+  const signupHandler = () => {
+    history.push('/signup');
   };
 
   return (

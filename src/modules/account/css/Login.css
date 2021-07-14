@@ -1,6 +1,5 @@
 body {
   margin: 0 auto;
-  background: transparent url('../img/background.png') center / cover no-repeat;
   height: 100vh;
 }
 
@@ -9,6 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: transparent url('../img/background.png') center / cover no-repeat;
 }
 
 .circle-wrapper {
@@ -62,30 +62,6 @@ body {
   justify-content: space-evenly;
 }
 
-.input-email {
-  width: 38vh;
-  padding-inline-start: 2vh;
-  height: 6vh;
-  border-radius: 3vh;
-  border: 0;
-}
-
-.input-email:focus {
-  outline: none;
-}
-
-.input-password {
-  width: 38vh;
-  padding-inline-start: 2vh;
-  height: 6vh;
-  border-radius: 3vh;
-  border: 0;
-}
-
-.input-password:focus {
-  outline: none;
-}
-
 .button-login {
   width: 41vh;
   height: 6.2vh;
@@ -98,7 +74,7 @@ body {
   opacity: 0.6;
 }
 
-.button-signin {
+.button-signup {
   width: 41vh;
   height: 6.2vh;
   border-radius: 3.1vh;
@@ -106,7 +82,7 @@ body {
   background-color: #52f25d;
 }
 
-.button-signin:hover {
+.button-signup:hover {
   opacity: 0.6;
 }
 
