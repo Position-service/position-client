@@ -50,63 +50,71 @@ body {
   display: block;
 }
 
-h2 {
-  color: #52f25d;
-  text-align: center;
-  margin-top: 0;
-}
-
-.team-list {
+.button-wrapper {
+  position: relative;
+  top: 8vh;
+  left: 8vh;
+  width: 41vh;
+  height: 41vh;
   display: flex;
-  padding: 5px;
-  line-height: 10px;
-  margin: 10px;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
-.team-name {
-  margin-left: 10px;
+.input-email {
+  width: 38vh;
+  padding-inline-start: 2vh;
+  height: 6vh;
+  border-radius: 3vh;
+  border: 0;
 }
 
-.tag-button {
-  width: 10px;
-  height: 10px;
-  background-color: black;
-  border-radius: 10px;
+.input-email:focus {
+  outline: none;
 }
 
-.public-team-list {
-  height: 85%;
-  margin: auto 0;
-  width: 100%;
+.input-password {
+  width: 38vh;
+  padding-inline-start: 2vh;
+  height: 6vh;
+  border-radius: 3vh;
+  border: 0;
 }
 
-.public-team-list h2 {
-  margin: auto 0;
-  margin-top: 10%;
-  margin-bottom: 20%;
+.input-password:focus {
+  outline: none;
 }
 
-.add-button {
-  color: white;
-  display: flex;
-  margin: auto 0;
+.button-login {
+  width: 41vh;
+  height: 6.2vh;
+  border-radius: 3.1vh;
+  border: 0;
+  background-color: #000000;
 }
 
-.add-button a {
-  margin: auto 0;
+.button-login:hover {
+  opacity: 0.6;
+}
+
+.button-signin {
+  width: 41vh;
+  height: 6.2vh;
+  border-radius: 3.1vh;
+  border: 0;
   background-color: #52f25d;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  text-align: center;
-  width: 120px;
-  height: 30px;
-  line-height: 30px;
 }
 
-.add-button a:hover {
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  transform: translateY(-7px);
-  box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.3);
+.button-signin:hover {
+  opacity: 0.6;
+}
+
+.a-password {
+  height: 1vh;
+  position: relative;
+  top: -2vh;
+  text-decoration: none;
+  align-self: center;
+  color: #000000;
 }
