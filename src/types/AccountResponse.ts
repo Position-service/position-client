@@ -1,9 +1,9 @@
 export type AccountResponse = {
   id: string;
-  username: string;
+  email: string;
   password: string;
 };
 
 export type TokenResponse = {
   token: string;
-}
+};
