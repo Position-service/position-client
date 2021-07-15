@@ -5,23 +5,31 @@ import './App.css';
 import ServerContext from './contexts/ServerContext';
 import Login from './modules/account/Login';
 import SignUp from './modules/account/SignUp';
+import Main from './modules/calender/Main';
+
+interface State {
+  server: Server;
+  userToken: string;
+}
 
 function App() {
-  const [userToken, setUserToken] = useState<string>('');
+  const [appState, setAppState] = useState<State>({
+    server: new Server(() => {}, ''),
+    userToken: '',
+  });
 
   useEffect(() => {
     const token = window.localStorage.getItem('token');
     if (token) {
-      setUserToken(token);
-    } else {
-      setUserToken('');
+      setAppState({
+        server: new Server(() => {}, token),
+        userToken: token,
+      });
     }
   }, []);
 
-  const server = new Server(() => {}, userToken);
-
   return (
-    <ServerContext.Provider value={{ server }}>
+    <ServerContext.Provider value={{ server: appState.server }}>
       <Router>
         <Switch>
           <Route path="/login">
@@ -30,7 +38,9 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/main"></Route>
+          <Route path="/main">
+            <Main />
+          </Route>
         </Switch>
       </Router>
     </ServerContext.Provider>

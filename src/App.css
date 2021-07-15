@@ -36,3 +36,53 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: 'LexendDeca';
+  src: url('./assets/fonts/LexendDeca-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Black';
+  src: url('./assets/fonts/NotoSansCJKkr-Black.otf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Bold';
+  src: url('./assets/fonts/NotoSansCJKkr-Bold.otf');
+}
+
+@font-face {
+  font-family: 'NotoSans-DemiLight';
+  src: url('./assets/fonts/NotoSansCJKkr-DemiLight.otf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Light';
+  src: url('./assets/fonts/NotoSansCJKkr-Light.otf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Medium';
+  src: url('./assets/fonts/NotoSansCJKkr-Medium.otf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Regular';
+  src: url('./assets/fonts/NotoSansCJKkr-Regular.otf');
+}
+
+@font-face {
+  font-family: 'NotoSans-Thin';
+  src: url('./assets/fonts/NotoSansCJKkr-Thin.otf');
+}
+
+@font-face {
+  font-family: 'NotoSansMono-Bold';
+  src: url('./assets/fonts/NotoSansMonoCJKkr-Bold.otf');
+}
+
+@font-face {
+  font-family: 'NotoSansMono-Regular';
+  src: url('./assets/fonts/NotoSansMonoCJKkr-Regular.otf');
+}
