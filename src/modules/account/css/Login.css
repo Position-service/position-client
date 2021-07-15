@@ -3,7 +3,7 @@ body {
   height: 100vh;
 }
 
-.section-main {
+.section-login {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,6 +63,7 @@ body {
 }
 
 .button-login {
+  font-family: 'LexendDeca';
   width: 41vh;
   height: 6.2vh;
   border-radius: 3.1vh;
@@ -75,6 +76,7 @@ body {
 }
 
 .button-signup {
+  font-family: 'LexendDeca';
   width: 41vh;
   height: 6.2vh;
   border-radius: 3.1vh;
@@ -87,6 +89,7 @@ body {
 }
 
 .a-password {
+  font-family: 'NotoSans-DemiLight';
   height: 1vh;
   position: relative;
   top: -2vh;

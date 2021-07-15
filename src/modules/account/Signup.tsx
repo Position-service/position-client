@@ -10,22 +10,25 @@ const SignUp: React.FunctionComponent = (props: Props) => {
   const history = useHistory();
 
   const signUpHandler = (
-    username: string,
+    email: string,
     password: string,
     passwordCheck: string,
-    nickName: string
+    nickname: string
   ) => {
-    if (!username || !password || !passwordCheck || !nickName) {
+    if (!email || !password || !passwordCheck || !nickname) {
       alert('이메일, 닉네임, 패스워드를 입력해 주세요.');
     } else if (password !== passwordCheck) {
       alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
     } else {
       server
-        .signup(username, password, passwordCheck, nickName)
+        .signup(email, password, passwordCheck, nickname)
         .then((res) => {
-          history.push('/signup');
+          console.log(res.data);
+          history.push('/main');
         })
-        .catch((e) => {});
+        .catch((e) => {
+          history.push('/main');
+        });
     }
   };
 

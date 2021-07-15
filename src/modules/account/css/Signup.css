@@ -3,9 +3,10 @@ body {
   height: 100vh;
 }
 
-.section-main {
+.section-signup {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   background: transparent url('../img/background.png') center / cover no-repeat;
 }

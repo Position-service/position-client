@@ -4,16 +4,16 @@ import './css/SignUp.css';
 
 interface Props {
   signUpHandler: (
-    username: string,
+    email: string,
     password: string,
     passwordCheck: string,
-    nickName: string
+    nickname: string
   ) => void;
 }
 
 interface State {
   email: string;
-  nickName: string;
+  nickname: string;
   password: string;
   passwordCheck: string;
   mailSent: boolean;
@@ -22,16 +22,16 @@ interface State {
 const SignUpTemplate: React.FunctionComponent<Props> = (props: Props) => {
   const [signUpInfo, setSignUpInfo] = useState<State>({
     email: '',
-    nickName: '',
+    nickname: '',
     password: '',
     passwordCheck: '',
     mailSent: false,
   });
 
-  const { email, nickName, password, passwordCheck, mailSent } = signUpInfo;
+  const { email, nickname, password, passwordCheck, mailSent } = signUpInfo;
 
   return (
-    <section className="section-main">
+    <section className="section-signup">
       <div className="modal-signup">
         <InputField
           value={email}
@@ -53,10 +53,10 @@ const SignUpTemplate: React.FunctionComponent<Props> = (props: Props) => {
           {mailSent && (
             <>
               <InputField
-                value={nickName}
-                name={'Nickname'}
+                value={nickname}
+                name={'nickname'}
                 changeHandler={(input: string) => {
-                  setSignUpInfo({ ...signUpInfo, nickName: input });
+                  setSignUpInfo({ ...signUpInfo, nickname: input });
                 }}
               />
               <InputField
@@ -79,7 +79,7 @@ const SignUpTemplate: React.FunctionComponent<Props> = (props: Props) => {
         <button
           className="button-signup"
           onClick={() =>
-            props.signUpHandler(email, password, passwordCheck, nickName)
+            props.signUpHandler(email, password, passwordCheck, nickname)
           }
         >
           <p>Sign Up</p>

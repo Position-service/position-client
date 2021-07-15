@@ -19,7 +19,7 @@ export const LoginTemplate: React.FunctionComponent<Props> = (props: Props) => {
   });
 
   return (
-    <section className="section-main">
+    <section className="section-login">
       <div className="circle-wrapper">
         <div className="circle-green">
           <div className="position-logo" />
@@ -40,7 +40,12 @@ export const LoginTemplate: React.FunctionComponent<Props> = (props: Props) => {
                 setLoginInfo({ ...loginInfo, password: input });
               }}
             />
-            <button className="button-login">
+            <button
+              className="button-login"
+              onClick={() =>
+                props.loginHandler(loginInfo.email, loginInfo.password)
+              }
+            >
               <p style={{ color: '#fff' }}>Sign In</p>
             </button>
             <button className="button-signup" onClick={props.signupHandler}>
