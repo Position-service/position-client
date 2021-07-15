@@ -51,7 +51,7 @@ body {
   background: transparent;
 }
 
-.button-verify-mail:hover {
+.button-verify-mail:hover:not([disabled]) {
   text-decoration: underline;
   border: 0;
   background: #fff;

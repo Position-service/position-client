@@ -49,31 +49,33 @@ const SignUpTemplate: React.FunctionComponent<Props> = (props: Props) => {
         >
           {mailSent ? '인증 메일이 발송되었습니다!' : '인증메일 발송하기'}
         </button>
-        {mailSent && (
-          <div className="signup-textfield-wrapper">
-            <InputField
-              value={nickName}
-              name={'Nickname'}
-              changeHandler={(input: string) => {
-                setSignUpInfo({ ...signUpInfo, nickName: input });
-              }}
-            />
-            <InputField
-              value={password}
-              name={'Password'}
-              changeHandler={(input: string) => {
-                setSignUpInfo({ ...signUpInfo, password: input });
-              }}
-            />
-            <InputField
-              value={passwordCheck}
-              name={'Password Check'}
-              changeHandler={(input: string) => {
-                setSignUpInfo({ ...signUpInfo, passwordCheck: input });
-              }}
-            />
-          </div>
-        )}
+        <div className="signup-textfield-wrapper">
+          {mailSent && (
+            <>
+              <InputField
+                value={nickName}
+                name={'Nickname'}
+                changeHandler={(input: string) => {
+                  setSignUpInfo({ ...signUpInfo, nickName: input });
+                }}
+              />
+              <InputField
+                value={password}
+                name={'Password'}
+                changeHandler={(input: string) => {
+                  setSignUpInfo({ ...signUpInfo, password: input });
+                }}
+              />
+              <InputField
+                value={passwordCheck}
+                name={'Password Check'}
+                changeHandler={(input: string) => {
+                  setSignUpInfo({ ...signUpInfo, passwordCheck: input });
+                }}
+              />
+            </>
+          )}
+        </div>
         <button
           className="button-signup"
           onClick={() =>
