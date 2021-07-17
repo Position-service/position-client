@@ -9,13 +9,11 @@ import Main from './modules/calender/Main';
 
 interface State {
   server: Server;
-  userToken: string;
 }
 
 function App() {
   const [appState, setAppState] = useState<State>({
     server: new Server(() => {}, ''),
-    userToken: '',
   });
 
   useEffect(() => {
@@ -23,13 +21,18 @@ function App() {
     if (token) {
       setAppState({
         server: new Server(() => {}, token),
-        userToken: token,
       });
     }
   }, []);
 
   return (
-    <ServerContext.Provider value={{ server: appState.server }}>
+    <ServerContext.Provider
+      value={{
+        server: appState.server,
+        setServer: (token: string) =>
+          setAppState({ server: new Server(() => {}, token) }),
+      }}
+    >
       <Router>
         <Switch>
           <Route path="/login">

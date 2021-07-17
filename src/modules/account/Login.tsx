@@ -5,7 +5,7 @@ import './css/Login.css';
 import { LoginTemplate } from './LoginTemplate';
 
 const Login: React.FunctionComponent = () => {
-  const { server } = useContext(ServerContext);
+  const { server, setServer } = useContext(ServerContext);
   const history = useHistory();
 
   const loginHandler = (email: string, password: string) => {
@@ -16,9 +16,14 @@ const Login: React.FunctionComponent = () => {
         .login(email, password)
         .then((res) => {
           window.localStorage.setItem('token', res.data.token);
+          setServer(res.data.token);
           history.push('/main');
         })
-        .catch((e) => {});
+        .catch((e) => {
+          if (e.response.status === 404) {
+            alert('이메일 혹은 비밀번호가 올바르지 않습니다.');
+          }
+        });
     }
   };
 
