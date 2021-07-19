@@ -14,14 +14,14 @@ export default class Server {
   signup = (
     email: string,
     password: string,
-    passwordCheck: string,
-    nickname: string
+    password_check: string,
+    nickName: string
   ): Promise<AxiosResponse<AccountResponse>> => {
     return client.post('/api/users/', {
       email,
       password,
-      passwordCheck,
-      nickname,
+      password_check,
+      nickName,
     });
   };
 

@@ -54,7 +54,7 @@ const SignUpTemplate: React.FunctionComponent<Props> = (props: Props) => {
             <>
               <InputField
                 value={nickname}
-                name={'nickname'}
+                name={'Nickname'}
                 changeHandler={(input: string) => {
                   setSignUpInfo({ ...signUpInfo, nickname: input });
                 }}
