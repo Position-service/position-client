@@ -5,6 +5,7 @@ import './App.css';
 import ServerContext from './contexts/ServerContext';
 import Login from './modules/account/Login';
 import SignUp from './modules/account/SignUp';
+import VerifiedUser from './modules/account/VerifiedUser';
 import Main from './modules/calender/Main';
 
 interface State {
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path="/main">
             <Main />
+          </Route>
+          <Route path="/verified">
+            <VerifiedUser />
           </Route>
         </Switch>
       </Router>
