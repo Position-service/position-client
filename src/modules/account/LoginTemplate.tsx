@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import InputField from './components/InputField';
 import './css/Login.css';
 
@@ -51,7 +51,7 @@ export const LoginTemplate: React.FunctionComponent<Props> = (props: Props) => {
             <button className="button-signup" onClick={props.signupHandler}>
               <p>Sign Up</p>
             </button>
-            <a className="a-password" href="">
+            <a className="a-password" href="#">
               <p>{'비밀번호를 잊으셨습니까?'}</p>
             </a>
           </div>
