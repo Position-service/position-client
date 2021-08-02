@@ -1,0 +1,34 @@
+p {
+  margin: 0;
+  align-self: center;
+}
+
+.wrapper-todolist {
+  position: relative;
+  left: 5vh;
+  width: 25%;
+  height: 88vh;
+}
+
+.title-todolist {
+  width: 100%;
+  min-width: 270px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'LexendDeca';
+  font-size: 2.5vh;
+  margin-bottom: 1vh;
+  top: 3vh;
+  position: relative;
+}
+
+.background-todolist {
+  background-color: #fff;
+  border-radius: 2.5px;
+  position: relative;
+  top: 3vh;
+  width: 100%;
+  min-width: 270px;
+  height: 72vh;
+  overflow-y: scroll;
+}
