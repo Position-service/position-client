@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import './AlertModal.css';
+import '../css/AlertModal.css';
 
 interface Props {
   buttonHandler: () => void;
