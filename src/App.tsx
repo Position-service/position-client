@@ -18,7 +18,7 @@ function App() {
   });
 
   useEffect(() => {
-    const token = window.localStorage.getItem('token');
+    const token = window.localStorage.getItem('position-token');
     if (token) {
       setAppState({
         server: new Server(() => {}, token),
