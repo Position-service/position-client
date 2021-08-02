@@ -62,16 +62,17 @@ header {
   position: relative;
   top: 2vh;
   right: 3vh;
-  height: 2vh;
+  height: 2.5vh;
   font-family: 'LexendDeca';
   font-size: 2vh;
   border: 0;
+  border-radius: 3px;
   background-color: transparent;
   color: #1c1c1c;
 }
 
 .header-button-black:hover {
-  opacity: 0.6;
+  background-color: #fff;
 }
 
 .header-message {
@@ -94,4 +95,22 @@ header {
   height: 2vh;
   margin-left: 1vh;
   margin-right: 1vh;
+}
+
+.header-menu-modal {
+  position: fixed;
+  border-radius: 5px;
+  top: 6vh;
+  right: 9vh;
+  width: 12vh;
+  height: 8vh;
+  box-shadow: 0px 3px 6px #1c1c1c16;
+  background-color: #fff;
+  font-family: 'LexendDeca';
+  color: #1c1c1c;
+  font-size: 1.5vh;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
 }
