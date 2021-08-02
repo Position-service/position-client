@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import ServerContext from '../../contexts/ServerContext';
-import './css/Login.css';
 import { LoginTemplate } from './LoginTemplate';
 
 const Login: React.FunctionComponent = () => {
@@ -15,13 +14,15 @@ const Login: React.FunctionComponent = () => {
       server
         .login(email, password)
         .then((res) => {
-          window.localStorage.setItem('token', res.data.token);
+          window.localStorage.setItem('position-token', res.data.token);
           setServer(res.data.token);
           history.push('/main');
         })
         .catch((e) => {
           if (e.response.status === 404) {
-            alert('이메일 혹은 비밀번호가 올바르지 않습니다.');
+            alert('등록되지 않은 사용자입니다. 회원가입을 진행해주세요.');
+          } else if (e.response.status === 401) {
+            alert('비밀번호가 올바르지 않습니다.');
           }
         });
     }
