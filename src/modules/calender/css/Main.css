@@ -1,6 +1,14 @@
-.section-main {
+.page-main {
   background-color: #ebebeb;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.section-todolist-calender {
+  position: relative;
+  top: 12vh;
+  width: 100vw;
+  height: 88vh;
+  background-color: transparent;
 }
