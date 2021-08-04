@@ -54,18 +54,6 @@ const TodoGroup = (groupProps: GroupProps) => {
   return (
     <div className="todogroup-background">
       <div className="todogroup-title">
-        <img
-          alt="arrow img"
-          onClick={() => {
-            setState({ ...state, showItem: !state.showItem });
-          }}
-          src={arrow}
-          srcSet={`${arrow} 1x, ${arrow2x} 2x`}
-          style={{
-            marginRight: 5,
-            transform: `rotate(${state?.showItem ? 0 : 270}deg)`,
-          }}
-        />
         {state.onEdit ? (
           <>
             <input
@@ -85,12 +73,26 @@ const TodoGroup = (groupProps: GroupProps) => {
             </button>
           </>
         ) : (
-          <div
-            style={{ alignSelf: 'center' }}
-            onDoubleClick={() => setState({ ...state, onEdit: true })}
-          >
-            {state.groupName}
-          </div>
+          <>
+            <img
+              alt="arrow img"
+              onClick={() => {
+                setState({ ...state, showItem: !state.showItem });
+              }}
+              src={arrow}
+              srcSet={`${arrow} 1x, ${arrow2x} 2x`}
+              style={{
+                marginRight: 5,
+                transform: `rotate(${state?.showItem ? 0 : 270}deg)`,
+              }}
+            />
+            <div
+              style={{ alignSelf: 'center' }}
+              onMouseOver={() => setState({ ...state, onEdit: true })}
+            >
+              {state.groupName}
+            </div>
+          </>
         )}
       </div>
       {state.showItem && (
