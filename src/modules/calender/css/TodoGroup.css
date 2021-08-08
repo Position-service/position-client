@@ -16,6 +16,9 @@
   border-bottom: solid 0.5px #6b6b6b;
   margin-bottom: 2vh;
   font-family: 'NotoSans-Regular';
+  font-size: 2.2vh;
+  text-align: center;
+  vertical-align: middle;
   color: #1c1c1c;
 }
 
@@ -48,14 +51,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 1vh;
+  margin-left: 1vh;
+  margin-bottom: 1.5vh;
+  margin-top: 1.5vh;
 }
 
 .todoitem-checkbox {
   width: 2vh;
   height: 2vh;
   border-radius: 1vh;
-  margin-right: 5px;
+  margin-right: 10px;
   border: solid 1px #848484;
 }
 
@@ -64,4 +69,11 @@
   font-family: 'NotoSans-Regular';
   font-size: 2vh;
   text-align: center;
+}
+
+.todogroup-option {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

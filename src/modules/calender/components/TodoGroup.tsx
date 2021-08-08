@@ -10,6 +10,7 @@ interface GroupProps {
 
 interface GroupState {
   showItem: boolean;
+  showOption: boolean;
   onEdit: boolean;
   groupName: string;
   newName: string;
@@ -47,6 +48,7 @@ const TodoItem = (itemProps: ItemProps) => {
 const TodoGroup = (groupProps: GroupProps) => {
   const [state, setState] = useState<GroupState>({
     showItem: true,
+    showOption: false,
     onEdit: false,
     groupName: groupProps.groupName,
     newName: groupProps.groupName,
@@ -82,15 +84,29 @@ const TodoGroup = (groupProps: GroupProps) => {
               src={arrow}
               srcSet={`${arrow} 1x, ${arrow2x} 2x`}
               style={{
-                marginRight: 5,
+                marginRight: 10,
+                marginTop: 3,
                 transform: `rotate(${state?.showItem ? 0 : 270}deg)`,
               }}
             />
             <div
-              style={{ alignSelf: 'center' }}
-              onMouseOver={() => setState({ ...state, onEdit: true })}
+              className="todogroup-option"
+              onMouseOut={() => setState({ ...state, showOption: false })}
+              onMouseOver={() => setState({ ...state, showOption: true })}
             >
               {state.groupName}
+              {state.showOption && (
+                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                  <div
+                    onClick={() => {
+                      setState({ ...state, onEdit: true });
+                    }}
+                  >
+                    Edit
+                  </div>
+                  <div>Del</div>
+                </div>
+              )}
             </div>
           </>
         )}
