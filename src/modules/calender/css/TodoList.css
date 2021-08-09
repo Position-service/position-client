@@ -29,6 +29,83 @@ p {
   top: 3vh;
   width: 100%;
   min-width: 270px;
-  height: 72vh;
+  height: 66vh;
   overflow-y: scroll;
+  padding-bottom: 6vh;
+}
+
+.addgroup-button-wrapper {
+  background-color: #fff;
+  position: fixed;
+  flex-direction: row;
+  left: 100;
+  right: 100;
+  bottom: 9vh;
+  align-items: center;
+  width: max-content;
+}
+
+.addgroup-button {
+  font-family: 'Notosans-Regular';
+  margin: 5px;
+  height: 3vh;
+  width: max-content;
+  border: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px #00000020;
+  z-index: 10;
+}
+
+.addgroup-button:hover {
+  background-color: #ebebeb50;
+  box-shadow: 0px 3px 6px #00000040;
+}
+
+.newgroup-modal {
+  background-color: #fff;
+  width: 85%;
+  height: 4vh;
+  display: flex;
+  flex-direction: row;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  justify-content: space-between;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 5px;
+  box-shadow: 0px 3px 10px #00000029;
+}
+
+.newgroup-name-input {
+  border: 0;
+  font-family: 'NotoSans-Regular';
+  color: #707070;
+  border-bottom: 0.3px solid #707070;
+}
+
+.newgroup-name-input:focus {
+  outline: none;
+}
+
+.newgroup-add-button {
+  color: #52f25d;
+  font-family: 'NotoSans-Medium';
+  border: 0;
+  background-color: transparent;
+}
+
+.newgroup-add-button:hover {
+  opacity: 60%;
+}
+
+.newgroup-quit-button {
+  color: #707070;
+
+  font-family: 'NotoSans-Medium';
+  border: 0;
+  background-color: transparent;
 }

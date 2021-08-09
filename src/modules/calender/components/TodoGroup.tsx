@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import '../css/TodoGroup.css';
 import arrow from '../img/arrow.png';
 import arrow2x from '../img/arrow@2x.png';
+import editIcon from '../img/edit-icon.png';
+import editIcon2x from '../img/edit-icon@2x.png';
+import deleteIcon from '../img/delete-icon.png';
+import deleteIcon2x from '../img/delete-icon@2x.png';
+import { TaskGroup, TaskItem } from '../../../types/Task';
 
 interface GroupProps {
-  groupName: string;
-  itemList: string[];
+  group: TaskGroup;
 }
 
 interface GroupState {
@@ -14,33 +18,108 @@ interface GroupState {
   onEdit: boolean;
   groupName: string;
   newName: string;
+  itemList: TaskItem[];
+  addItem: boolean;
 }
 
 interface ItemProps {
-  itemName: string;
-  clear: boolean;
+  item: TaskItem;
+  onEdit?: boolean;
 }
 
-const testItemList = [];
+interface ItemState {
+  showOption: boolean;
+  onEdit: boolean;
+  clear: boolean;
+  itemName: string;
+  newName: string;
+}
 
 const TodoItem = (itemProps: ItemProps) => {
-  const [clear, setClear] = useState(itemProps.clear);
+  const [state, setState] = useState<ItemState>({
+    showOption: false,
+    onEdit: false,
+    clear: false,
+    itemName: itemProps.item.title,
+    newName: itemProps.item.title,
+  });
+
+  const deleteHandler = () => {
+    const id = itemProps.item.id;
+  };
   return (
-    <div className="todoitem-background" onClick={() => setClear(!clear)}>
+    <div className="todoitem-background">
       <div
         className="todoitem-checkbox"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            setState({ ...state, clear: !state.clear });
+          }
+        }}
         style={{
-          backgroundColor: clear ? '#848484' : 'transparent',
+          backgroundColor: state.clear ? '#848484' : 'transparent',
         }}
       />
-      <div
-        className="todoitem-name"
-        style={{
-          textDecorationLine: clear ? 'line-through' : 'none',
-        }}
-      >
-        {itemProps.itemName}
-      </div>
+      {state.onEdit ? (
+        <>
+          <input
+            className="todoitem-input-name"
+            placeholder={state.itemName}
+            onChange={(e) => {
+              setState({ ...state, newName: e.target.value });
+            }}
+          />
+          <button
+            className="todoitem-edit-name-button"
+            onClick={() => {
+              setState({ ...state, onEdit: false, itemName: state.newName });
+            }}
+          >
+            Edit
+          </button>
+        </>
+      ) : (
+        <div
+          className="todoitem-name"
+          onMouseEnter={() => setState({ ...state, showOption: true })}
+          onMouseLeave={() => setState({ ...state, showOption: false })}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setState({ ...state, clear: !state.clear });
+            }
+          }}
+          style={{
+            textDecorationLine: state.clear ? 'line-through' : 'none',
+            backgroundColor: state.showOption ? '#EBEBEB' : 'transparent',
+          }}
+        >
+          {state.itemName}
+          {state.showOption && (
+            <div
+              className="todoitem-button"
+              style={{ display: 'flex', flexDirection: 'row' }}
+            >
+              <img
+                className="item-edit-icon"
+                onClick={() => {
+                  setState({ ...state, onEdit: true, showOption: false });
+                }}
+                alt="edit_icon"
+                src={editIcon}
+                srcSet={`${editIcon} 1x, ${editIcon2x} 2x`}
+                style={{ marginRight: 5 }}
+              />
+              <img
+                className="item-delete-icon"
+                onClick={deleteHandler}
+                alt="delete_icon"
+                src={deleteIcon}
+                srcSet={`${deleteIcon} 1x, ${deleteIcon2x} 2x`}
+              />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
@@ -50,9 +129,15 @@ const TodoGroup = (groupProps: GroupProps) => {
     showItem: true,
     showOption: false,
     onEdit: false,
-    groupName: groupProps.groupName,
-    newName: groupProps.groupName,
+    groupName: groupProps.group.title,
+    newName: groupProps.group.title,
+    itemList: groupProps.group.itemList,
+    addItem: false,
   });
+
+  const deleteHandler = () => {
+    const id = groupProps.group.id;
+  };
   return (
     <div className="todogroup-background">
       <div className="todogroup-title">
@@ -65,14 +150,18 @@ const TodoGroup = (groupProps: GroupProps) => {
                 setState({ ...state, newName: e.target.value });
               }}
             />
-            <button
-              className="todogroup-edit-name-button"
+            <img
+              className="edit-icon"
               onClick={() => {
                 setState({ ...state, onEdit: false, groupName: state.newName });
               }}
-            >
-              Edit
-            </button>
+              alt="edit_icon"
+              src={editIcon}
+              srcSet={`${editIcon} 1x, ${editIcon2x} 2x`}
+              style={{
+                marginLeft: 5,
+              }}
+            />
           </>
         ) : (
           <>
@@ -91,20 +180,34 @@ const TodoGroup = (groupProps: GroupProps) => {
             />
             <div
               className="todogroup-option"
-              onMouseOut={() => setState({ ...state, showOption: false })}
-              onMouseOver={() => setState({ ...state, showOption: true })}
+              onMouseLeave={() => setState({ ...state, showOption: false })}
+              onMouseEnter={() => setState({ ...state, showOption: true })}
             >
               {state.groupName}
               {state.showOption && (
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                  <div
+                <div
+                  className="todogroup-button"
+                  style={{ display: 'flex', flexDirection: 'row' }}
+                >
+                  <img
+                    className="group-edit-icon"
                     onClick={() => {
-                      setState({ ...state, onEdit: true });
+                      setState({ ...state, onEdit: true, showOption: false });
                     }}
-                  >
-                    Edit
-                  </div>
-                  <div>Del</div>
+                    alt="edit_icon"
+                    src={editIcon}
+                    srcSet={`${editIcon} 1x, ${editIcon2x} 2x`}
+                    style={{
+                      marginRight: 7,
+                    }}
+                  />
+                  <img
+                    className="group-delete-icon"
+                    onClick={deleteHandler}
+                    alt="delete_icon"
+                    src={deleteIcon}
+                    srcSet={`${deleteIcon} 1x, ${deleteIcon2x} 2x`}
+                  />
                 </div>
               )}
             </div>
@@ -113,8 +216,27 @@ const TodoGroup = (groupProps: GroupProps) => {
       </div>
       {state.showItem && (
         <>
-          <TodoItem itemName={'테스트하기'} clear={false} />
-          <TodoItem itemName={'테스트하기'} clear={false} />
+          {state.itemList.map((item, index) => (
+            <TodoItem key={index} item={item} />
+          ))}
+          <button
+            className="todoitem-add-button"
+            onClick={() => {
+              setState({
+                ...state,
+                itemList: [
+                  ...state.itemList,
+                  {
+                    id: 0,
+                    title: '새 할 일',
+                    isDone: false,
+                  },
+                ],
+              });
+            }}
+          >
+            할 일 추가하기 +
+          </button>
         </>
       )}
     </div>
