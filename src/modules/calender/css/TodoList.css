@@ -37,18 +37,19 @@ p {
 .addgroup-button-wrapper {
   background-color: #fff;
   position: fixed;
+  display: flex;
   flex-direction: row;
-  left: 100;
-  right: 100;
-  bottom: 9vh;
+  bottom: 9.5vh;
+  width: 25%;
+  min-width: 270px;
+  justify-content: center;
   align-items: center;
-  width: max-content;
 }
 
 .addgroup-button {
   font-family: 'Notosans-Regular';
   margin: 5px;
-  height: 3vh;
+  height: 3.2vh;
   width: max-content;
   border: 0;
   background-color: #fff;
