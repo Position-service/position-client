@@ -110,13 +110,15 @@ const TodoItem = (itemProps: ItemProps) => {
                 srcSet={`${editIcon} 1x, ${editIcon2x} 2x`}
                 style={{ marginRight: 5 }}
               />
-              <img
-                className="item-delete-icon"
-                onClick={deleteHandler}
-                alt="delete_icon"
-                src={deleteIcon}
-                srcSet={`${deleteIcon} 1x, ${deleteIcon2x} 2x`}
-              />
+              <div className="back-delete-icon">
+                  <img
+                  className="item-delete-icon"
+                  onClick={deleteHandler}
+                  alt="delete_icon"
+                  src={deleteIcon}
+                  srcSet={`${deleteIcon} 1x, ${deleteIcon2x} 2x`}
+                  />
+              </div>
             </div>
           )}
         </div>
