@@ -61,6 +61,7 @@ p {
 .addgroup-button:hover {
   background-color: #ebebeb50;
   box-shadow: 0px 3px 6px #00000040;
+  cursor: pointer;
 }
 
 .newgroup-modal {
