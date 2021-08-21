@@ -32,6 +32,11 @@
   border-radius: 3px;
   background: #c6c6c6;
   color: #fff;
+  font-size:15px;
+}
+
+.todogroup-input-name:focus{
+  outline: none;
 }
 
 .todogroup-edit-name-button {
@@ -88,6 +93,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 3px;
+}
+
+.todogroup-option:hover{
+  background-color: rgb(235,235,235);
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .todogroup-button {
@@ -157,4 +169,21 @@
 .group-delete-icon {
   width: 2.3vh;
   height: 2.5vh;
+}
+
+
+.edit-button{
+  width: 6vh;
+  height: 3vh;
+  background-color: white;
+  border: none;
+  font-size: 16px;
+}
+
+.edit-button:hover{
+  width: 6vh;
+  height: 3vh;
+  background-color:rgb(235,235,235);
+  border-radius: 3px;
+  cursor: pointer;
 }

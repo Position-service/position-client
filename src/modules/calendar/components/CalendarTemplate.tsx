@@ -8,7 +8,7 @@ const CalendarWrapper = (props: Props) => {
   return (
     <div>
       <CalendarHeader />
-      <Calendar />
+      {/* <Calendar /> */}
     </div>
   );
 };

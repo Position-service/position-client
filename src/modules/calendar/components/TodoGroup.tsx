@@ -150,18 +150,17 @@ const TodoGroup = (groupProps: GroupProps) => {
                 setState({ ...state, newName: e.target.value });
               }}
             />
-            <img
-              className="edit-icon"
-              onClick={() => {
-                setState({ ...state, onEdit: false, groupName: state.newName });
-              }}
-              alt="edit_icon"
-              src={editIcon}
-              srcSet={`${editIcon} 1x, ${editIcon2x} 2x`}
-              style={{
-                marginLeft: 5,
-              }}
-            />
+         
+            <button
+            className="edit-button"
+            onClick={() => {
+              setState({ ...state, onEdit: false, groupName: state.newName });
+            }}
+            style={{
+              marginLeft: 7,
+            }}>
+              Edit
+            </button>
           </>
         ) : (
           <>
