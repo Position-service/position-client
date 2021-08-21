@@ -6,6 +6,7 @@ import editIcon from '../img/edit-icon.png';
 import editIcon2x from '../img/edit-icon@2x.png';
 import deleteIcon from '../img/delete-icon.png';
 import deleteIcon2x from '../img/delete-icon@2x.png';
+import addIcon from '../img/add-icon.png';
 import { TaskGroup, TaskItem } from '../../../types/Task';
 
 interface GroupProps {
@@ -218,6 +219,7 @@ const TodoGroup = (groupProps: GroupProps) => {
           {state.itemList.map((item, index) => (
             <TodoItem key={index} item={item} />
           ))}
+          
           <button
             className="todoitem-add-button"
             onClick={() => {
@@ -234,7 +236,8 @@ const TodoGroup = (groupProps: GroupProps) => {
               });
             }}
           >
-            할 일 추가하기 +
+          <img src={addIcon} className="add-icon-btn"/>  
+          할 일 추가하기
           </button>
         </>
       )}
