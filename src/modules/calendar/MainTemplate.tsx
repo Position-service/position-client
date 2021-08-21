@@ -44,7 +44,7 @@ const MainTemplate: React.FunctionComponent<Props> = (props: Props) => {
       </div>
       {modalVisible && (
         <AlertModal
-          // backgroundColor={'#fff'}
+          backgroundColor={'#fff'}
           buttonHandler={() => {
             setModalVisible(false);
           }}
@@ -53,7 +53,7 @@ const MainTemplate: React.FunctionComponent<Props> = (props: Props) => {
       )}
       {passwordModalVisible && (
         <AlertModal
-          // backgroundColor={'#EBEBEB'}
+          backgroundColor={'#EBEBEB'}
           buttonHandler={() => {
             setPasswordModalVisible(false);
           }}
