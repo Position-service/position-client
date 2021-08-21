@@ -6,7 +6,7 @@ import ServerContext from './contexts/ServerContext';
 import Login from './modules/account/Login';
 import SignUp from './modules/account/SignUp';
 import VerifiedUser from './modules/account/VerifiedUser';
-import Main from './modules/calender/Main';
+import Main from './modules/calendar/Main';
 
 interface State {
   server: Server;

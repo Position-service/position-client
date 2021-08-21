@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AlertModal from '../account/components/AlertModal';
-import Calender from './components/Calender';
+import CalendarWrapper from './components/CalendarTemplate';
 import Header from './components/Header';
 import TodoList from './components/TodoList';
 import './css/Main.css';
@@ -9,7 +9,7 @@ interface Props {
   logoutHandler: () => void;
 }
 
-const MainTemplate = (props: Props) => {
+const MainTemplate: React.FunctionComponent<Props> = (props: Props) => {
   const [modalVisible, setModalVisible] = useState(true);
   const [passwordModalVisible, setPasswordModalVisible] = useState(false);
   const verifyModal = (
@@ -39,7 +39,7 @@ const MainTemplate = (props: Props) => {
         />
         <section className="section-todolist-calender">
           <TodoList />
-          <Calender />
+          <CalendarWrapper />
         </section>
       </div>
       {modalVisible && (

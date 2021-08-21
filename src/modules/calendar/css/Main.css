@@ -6,6 +6,9 @@
 }
 
 .section-todolist-calender {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   position: relative;
   top: 12vh;
   width: 100vw;

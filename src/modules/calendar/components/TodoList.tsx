@@ -18,6 +18,7 @@ const TodoList = (props: Props) => {
     { id: 1, title: '수정하기', isDone: false },
     { id: 2, title: '개발하기', isDone: false },
   ];
+
   const testGroupList = [
     {
       id: 10,
@@ -25,11 +26,13 @@ const TodoList = (props: Props) => {
       itemList: testItemList,
     },
   ];
+
   const [state, setState] = useState<State>({
     groupList: testGroupList,
     addGroup: false,
     newGroupName: '새 그룹 이름',
   });
+
   return (
     <div className="wrapper-todolist">
       <div className="title-todolist">
@@ -47,7 +50,6 @@ const TodoList = (props: Props) => {
               placeholder="새 그룹 이름"
               onChange={(e) => {
                 setState({ ...state, newGroupName: e.target.value });
-                console.log(state.newGroupName);
               }}
             ></input>
             <button

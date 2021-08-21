@@ -1,0 +1,8 @@
+.mode-button-background {
+  width: 100px;
+  height: 42px;
+  border-radius: 5px;
+  font-family: 'LexendDeca';
+  align-items: center;
+  display: flex;
+}
