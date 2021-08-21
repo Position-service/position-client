@@ -32,6 +32,11 @@
   border-radius: 3px;
   background: #c6c6c6;
   color: #fff;
+  font-size:15px;
+}
+
+.todogroup-input-name:focus{
+  outline: none;
 }
 
 .todogroup-edit-name-button {
@@ -88,6 +93,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 3px;
+}
+
+.todogroup-option:hover{
+  background-color: rgb(235,235,235);
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .todogroup-button {
@@ -120,8 +132,9 @@
 }
 .todoitem-add-button {
   font-family: 'Notosans-Regular';
-  margin-top: 3px;
+  /* margin-top: 3px; */
   height: 3vh;
+  line-height: 3vh;
   width: max-content;
   border: 0;
   color: #6b6b6b;
@@ -130,7 +143,18 @@
 }
 
 .todoitem-add-button:hover {
-  box-shadow: 0px 3px 6px #00000020;
+  /* box-shadow: 0px 3px 6px #00000020; */
+  cursor: pointer;
+  background-color: rgb(245,245,245);
+}
+
+.add-icon-btn{
+  width: 1.5vh;
+  line-height: 3vh;
+  padding:0.2vh;
+  position: relative;
+  padding-top: 0.5vh;
+  top:2px;
 }
 
 .todoitem-button {
@@ -157,4 +181,21 @@
 .group-delete-icon {
   width: 2.3vh;
   height: 2.5vh;
+}
+
+
+.edit-button{
+  width: 6vh;
+  height: 3vh;
+  background-color: white;
+  border: none;
+  font-size: 16px;
+}
+
+.edit-button:hover{
+  width: 6vh;
+  height: 3vh;
+  background-color:rgb(235,235,235);
+  border-radius: 3px;
+  cursor: pointer;
 }
