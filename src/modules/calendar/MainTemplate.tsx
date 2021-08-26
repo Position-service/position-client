@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AlertModal from '../account/components/AlertModal';
-import CalendarWrapper from './components/CalendarTemplate';
+import CalendarTemplate from './components/CalendarTemplate';
 import Header from './components/Header';
 import TodoList from './components/TodoList';
 import './css/Main.css';
@@ -39,7 +39,7 @@ const MainTemplate: React.FunctionComponent<Props> = (props: Props) => {
         />
         <section className="section-todolist-calender">
           <TodoList />
-          <CalendarWrapper />
+          <CalendarTemplate />
         </section>
       </div>
       {modalVisible && (
