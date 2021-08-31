@@ -82,13 +82,11 @@ const TodoItem = (itemProps: ItemProps) => {
       ) : (
         <div
           className="todoitem-name"
+          onDoubleClick={() => {
+            setState({ ...state, onEdit: true });
+          }}
           onMouseEnter={() => setState({ ...state, showOption: true })}
           onMouseLeave={() => setState({ ...state, showOption: false })}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) {
-              setState({ ...state, clear: !state.clear });
-            }
-          }}
           style={{
             textDecorationLine: state.clear ? 'line-through' : 'none',
             backgroundColor: state.showOption ? '#EBEBEB' : 'transparent',
@@ -100,24 +98,14 @@ const TodoItem = (itemProps: ItemProps) => {
               className="todoitem-button"
               style={{ display: 'flex', flexDirection: 'row' }}
             >
-              <img
-                className="item-edit-icon"
-                onClick={() => {
-                  setState({ ...state, onEdit: true, showOption: false });
-                }}
-                alt="edit_icon"
-                src={editIcon}
-                srcSet={`${editIcon} 1x, ${editIcon2x} 2x`}
-                style={{ marginRight: 5 }}
-              />
               <div className="back-delete-icon">
-                  <img
+                <img
                   className="item-delete-icon"
                   onClick={deleteHandler}
                   alt="delete_icon"
                   src={deleteIcon}
                   srcSet={`${deleteIcon} 1x, ${deleteIcon2x} 2x`}
-                  />
+                />
               </div>
             </div>
           )}
@@ -153,15 +141,15 @@ const TodoGroup = (groupProps: GroupProps) => {
                 setState({ ...state, newName: e.target.value });
               }}
             />
-         
             <button
-            className="edit-button"
-            onClick={() => {
-              setState({ ...state, onEdit: false, groupName: state.newName });
-            }}
-            style={{
-              marginLeft: 7,
-            }}>
+              className="edit-button"
+              onClick={() => {
+                setState({ ...state, onEdit: false, groupName: state.newName });
+              }}
+              style={{
+                marginLeft: 7,
+              }}
+            >
               Edit
             </button>
           </>
@@ -182,6 +170,9 @@ const TodoGroup = (groupProps: GroupProps) => {
             />
             <div
               className="todogroup-option"
+              onDoubleClick={() => {
+                setState({ ...state, onEdit: true });
+              }}
               onMouseLeave={() => setState({ ...state, showOption: false })}
               onMouseEnter={() => setState({ ...state, showOption: true })}
             >
@@ -191,18 +182,6 @@ const TodoGroup = (groupProps: GroupProps) => {
                   className="todogroup-button"
                   style={{ display: 'flex', flexDirection: 'row' }}
                 >
-                  <img
-                    className="group-edit-icon"
-                    onClick={() => {
-                      setState({ ...state, onEdit: true, showOption: false });
-                    }}
-                    alt="edit_icon"
-                    src={editIcon}
-                    srcSet={`${editIcon} 1x, ${editIcon2x} 2x`}
-                    style={{
-                      marginRight: 7,
-                    }}
-                  />
                   <img
                     className="group-delete-icon"
                     onClick={deleteHandler}
@@ -221,7 +200,7 @@ const TodoGroup = (groupProps: GroupProps) => {
           {state.itemList.map((item, index) => (
             <TodoItem key={index} item={item} />
           ))}
-          
+
           <button
             className="todoitem-add-button"
             onClick={() => {
@@ -238,8 +217,7 @@ const TodoGroup = (groupProps: GroupProps) => {
               });
             }}
           >
-          <img src={addIcon} className="add-icon-btn"/>  
-          할 일 추가하기
+            <img src={addIcon} className="add-icon-btn" />할 일 추가하기
           </button>
         </>
       )}
