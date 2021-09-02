@@ -1,3 +1,16 @@
+diff --git a/node_modules/react-big-calendar/lib/Month.js b/node_modules/react-big-calendar/lib/Month.js
+index ef5b882..65e381e 100644
+--- a/node_modules/react-big-calendar/lib/Month.js
++++ b/node_modules/react-big-calendar/lib/Month.js
+@@ -306,7 +306,7 @@ function (_React$Component) {
+       }, _react.default.createElement(HeaderComponent, {
+         date: day,
+         localizer: localizer,
+-        label: localizer.format(day, 'weekdayFormat')
++        label: localizer.format(day, 'weekdayFormat')[0]
+       }));
+     });
+   };
 diff --git a/node_modules/react-big-calendar/lib/Toolbar.js b/node_modules/react-big-calendar/lib/Toolbar.js
 index 7a13ed8..b010911 100644
 --- a/node_modules/react-big-calendar/lib/Toolbar.js
@@ -13,10 +26,10 @@ index 7a13ed8..b010911 100644
        onClick: this.navigate.bind(null, _constants.navigate.PREVIOUS)
      }, messages.previous), _react.default.createElement("button", {
 diff --git a/node_modules/react-big-calendar/lib/css/react-big-calendar.css b/node_modules/react-big-calendar/lib/css/react-big-calendar.css
-index a8aed1d..1b28821 100644
+index a8aed1d..a68b19f 100644
 --- a/node_modules/react-big-calendar/lib/css/react-big-calendar.css
 +++ b/node_modules/react-big-calendar/lib/css/react-big-calendar.css
-@@ -2,100 +2,135 @@
+@@ -2,100 +2,137 @@
  .rbc-btn {
    color: inherit;
    font: inherit;
@@ -45,6 +58,7 @@ index a8aed1d..1b28821 100644
  
  .rbc-calendar {
    box-sizing: border-box;
++  overflow: hidden;
    height: 100%;
    display: flex;
    flex-direction: column;
@@ -128,6 +142,7 @@ index a8aed1d..1b28821 100644
 +  font-family: 'LexendDeca';
 +  color: #fff;
 +  height: 3vh;
++  z-index:10;
 +}
 +.rbc-header + .rbc-header {
 +  border-left: 1px solid #ddd;
@@ -183,12 +198,12 @@ index a8aed1d..1b28821 100644
  
  .rbc-today {
 -  background-color: #eaf6ff; }
-+  background-color: #eaf6ff;
++  background-color: #DCDCDC;
 +}
  
  .rbc-toolbar {
    display: flex;
-@@ -103,144 +138,213 @@ button.rbc-input::-moz-focus-inner {
+@@ -103,144 +140,213 @@ button.rbc-input::-moz-focus-inner {
    justify-content: center;
    align-items: center;
    margin-bottom: 10px;
@@ -444,21 +459,21 @@ index a8aed1d..1b28821 100644
  .rbc-show-more {
 -  background-color: rgba(255, 255, 255, 0.3);
 +  /* background-color: rgba(255, 255, 255, 0.3);
-+  z-index: 4;
-+  font-weight: bold;
-+  font-size: 85%;
-+  height: auto;
+   z-index: 4;
+   font-weight: bold;
+   font-size: 85%;
+   height: auto;
+-  line-height: normal; }
 +  line-height: normal; */
 +  display: hidden;
 +}
 +
 +a.rbc-show-more {
 +  /* background-color: rgba(255, 255, 255, 0.3);
-   z-index: 4;
-   font-weight: bold;
-   font-size: 85%;
-   height: auto;
--  line-height: normal; }
++  z-index: 4;
++  font-weight: bold;
++  font-size: 85%;
++  height: auto;
 +  line-height: normal; */
 +  display: hidden;
 +}
@@ -487,7 +502,7 @@ index a8aed1d..1b28821 100644
  
  .rbc-month-row {
    display: flex;
-@@ -249,191 +353,256 @@ button.rbc-input::-moz-focus-inner {
+@@ -249,191 +355,265 @@ button.rbc-input::-moz-focus-inner {
    flex: 1 0 0;
    flex-basis: 0px;
    overflow: hidden;
@@ -533,6 +548,8 @@ index a8aed1d..1b28821 100644
    flex: 1 0 0;
 -  overflow: hidden; }
 +  overflow: hidden;
++  background-color: rgba(255, 255, 255, 0.60);
++  box-shadow: 0px 3px 6px #1c1c1c16;
 +}
  
  .rbc-day-bg {
@@ -545,6 +562,8 @@ index a8aed1d..1b28821 100644
 +  background-color: #fff;
 +  flex: 1 0 0%;
 +}
++
++
 +.rbc-day-bg + .rbc-day-bg {
 +  border-left: 0.5em solid #c8c8c8;
 +  border-width: 0.5px;
@@ -677,6 +696,7 @@ index a8aed1d..1b28821 100644
 -  .rbc-time-column .rbc-timeslot-group {
 -    flex: 1; }
 +  min-height: 100%;
++  background-color: #fff;
 +}
 +.rbc-time-column .rbc-timeslot-group {
 +  flex: 1;
@@ -781,7 +801,7 @@ index a8aed1d..1b28821 100644
 +  word-wrap: break-word;
 +  line-height: 1;
 +  height: 100%;
-+  min-height: 1em;
++  min-height: 0.7em;
 +}
 +.rbc-day-slot .rbc-time-slot {
 +  border-top: 1px solid #f7f7f7;
@@ -815,10 +835,14 @@ index a8aed1d..1b28821 100644
 -  display: none; }
 +  display: none;
 +}
++
++.rbc-time-view-resources .rbc-day-slot {
++  min-width: 140px;
++}
  
  .rbc-time-view-resources .rbc-day-slot {
 -  min-width: 140px; }
-+  min-width: 140px;
++  height: 3vh;
 +}
  
  .rbc-time-view-resources .rbc-header,
@@ -853,7 +877,7 @@ index a8aed1d..1b28821 100644
  
  .rbc-slot-selection {
    z-index: 10;
-@@ -442,83 +611,114 @@ button.rbc-input::-moz-focus-inner {
+@@ -442,83 +622,114 @@ button.rbc-input::-moz-focus-inner {
    color: white;
    font-size: 75%;
    width: 100%;
@@ -926,7 +950,7 @@ index a8aed1d..1b28821 100644
 -  .rbc-time-header > .rbc-row.rbc-row-resource {
 -    border-bottom: 1px solid #DDD; }
 +  flex-direction: row;
-+  background-color: #dcdcdc;
++  background-color: #fff;
 +  font-family: 'LexendDeca';
 +  color: #fff;
 +}
@@ -1018,7 +1042,7 @@ index a8aed1d..1b28821 100644
  
  .rbc-current-time-indicator {
    position: absolute;
-@@ -527,4 +727,5 @@ button.rbc-input::-moz-focus-inner {
+@@ -527,4 +738,5 @@ button.rbc-input::-moz-focus-inner {
    right: 0;
    height: 1px;
    background-color: #74ad31;
