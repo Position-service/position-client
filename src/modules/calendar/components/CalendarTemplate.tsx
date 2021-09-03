@@ -37,7 +37,10 @@ const CalendarTemplate = (props: Props) => {
   ];
 
   return (
-    <div>
+    <section
+      className="section-calender"
+      style={{ width: '60%', overflow: 'hidden' }}
+    >
       <Calendar
         localizer={localizer}
         events={myEventsList}
@@ -50,7 +53,7 @@ const CalendarTemplate = (props: Props) => {
           overflow: 'hidden',
         }}
       />
-    </div>
+    </section>
   );
 };
 
