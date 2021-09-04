@@ -73,6 +73,7 @@ header {
 
 .header-button-black:hover {
   background-color: #fff;
+  cursor: pointer;
 }
 
 .header-message {
