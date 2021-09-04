@@ -16,10 +16,18 @@
   padding: 5vh;
   background: #fff;
   border-radius: 15px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  display: flex;
+}
+
+.section-modal-title {
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .position-logo-green {
@@ -34,15 +42,33 @@
   display: block;
 }
 
+.modal-close-button {
+  width: 2vh;
+  height: 2vh;
+  border: 0;
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  align-self: flex-end;
+  right: 0;
+}
+
+.modal-children {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
 .modal-confirm-button {
   width: 12vh;
   height: 4vh;
-  margin-bottom: 4vh;
   border: 0;
   border-radius: 1vh;
   color: #fff;
   font-weight: bold;
-  background-color: #52f25d;
+  background-color: #59f87e;
 }
 
 .modal-confirm-button:hover {
