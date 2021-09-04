@@ -88,6 +88,9 @@ header {
   margin-left: 2vh;
   font-size: 2vh;
   color: #1c1c1c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon-error {
