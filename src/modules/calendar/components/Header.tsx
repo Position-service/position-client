@@ -22,16 +22,19 @@ const Header = (props: Props) => {
         <div className="header-contents">
           <div className="header-button-wrapper">
             <div className="header-gray-button-wrapper">
-              <button className="header-button-gray">Help</button>
               <button className="header-button-gray">About</button>
             </div>
             <div className="header-black-button-wrapper">
               <button
                 className="header-button-black"
                 onClick={() => setMenuVisible(!menuVisible)}
-                style={{
-                  backgroundColor: menuVisible ? '#C6C6C6' : 'normal',
-                }}
+                style={
+                  menuVisible
+                    ? {
+                        backgroundColor: '#C6C6C6',
+                      }
+                    : {}
+                }
               >
                 Menu
               </button>
