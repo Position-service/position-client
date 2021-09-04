@@ -74,3 +74,16 @@
 .modal-confirm-button:hover {
   opacity: 0.5;
 }
+
+.modal-submit-button {
+  font-family: 'LexendDeca';
+  width: 41vh;
+  height: 6.2vh;
+  border-radius: 3.1vh;
+  border: 0;
+  background-color: #59f87e;
+}
+
+.modal-submit-button:hover {
+  opacity: 0.6;
+}

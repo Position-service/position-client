@@ -51,7 +51,14 @@ const MainTemplate: React.FunctionComponent<Props> = (props: Props) => {
             setPasswordModalVisible(false);
           }}
           children={
-            <PasswordChangeModal password={''} passwordHandler={() => {}} />
+            <PasswordChangeModal
+              password={''}
+              passwordHandler={() => {}}
+              passwordCheck={''}
+              passwordCheckHandler={() => {}}
+              confirmed={true}
+              submitHandler={() => {}}
+            />
           }
           title={
             <p
