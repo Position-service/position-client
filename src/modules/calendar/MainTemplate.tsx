@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import AlertModal from '../account/components/AlertModal';
+import PasswordChangeModal from '../account/components/PasswordChangeModal';
 import CalendarTemplate from './components/CalendarTemplate';
 import Header from './components/Header';
 import TodoList from './components/TodoList';
+import VerifyModal from '../account/components/VerifyModal';
 import './css/Main.css';
 
 interface Props {
@@ -12,22 +14,7 @@ interface Props {
 const MainTemplate: React.FunctionComponent<Props> = (props: Props) => {
   const [modalVisible, setModalVisible] = useState(true);
   const [passwordModalVisible, setPasswordModalVisible] = useState(false);
-  const verifyModal = (
-    <>
-      <div className="position-logo-green" />
-      <div
-        style={{
-          fontSize: 15,
-          fontFamily: 'NotoSans-Regular',
-        }}
-      >
-        <p>메일 인증이 완료되지 않았습니다!</p>
-        <p>메일함으로 가서 인증을 완료해주세요.</p>
-      </div>
-    </>
-  );
 
-  const passwordModal = <>Password Change</>;
   return (
     <>
       <div className="page-main">
@@ -45,19 +32,37 @@ const MainTemplate: React.FunctionComponent<Props> = (props: Props) => {
       {modalVisible && (
         <AlertModal
           backgroundColor={'#fff'}
-          buttonHandler={() => {
+          closeHandler={() => {
             setModalVisible(false);
           }}
-          children={verifyModal}
+          children={
+            <VerifyModal
+              confirmHandler={() => {
+                setModalVisible(false);
+              }}
+            />
+          }
         />
       )}
       {passwordModalVisible && (
         <AlertModal
           backgroundColor={'#EBEBEB'}
-          buttonHandler={() => {
+          closeHandler={() => {
             setPasswordModalVisible(false);
           }}
-          children={passwordModal}
+          children={
+            <PasswordChangeModal password={''} passwordHandler={() => {}} />
+          }
+          title={
+            <p
+              style={{
+                fontFamily: 'Lexend',
+                fontSize: '1.1em',
+              }}
+            >
+              Change Password
+            </p>
+          }
         />
       )}
     </>
