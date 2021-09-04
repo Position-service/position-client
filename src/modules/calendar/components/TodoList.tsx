@@ -88,7 +88,7 @@ const TodoList = (props: Props) => {
               setState({ ...state, addGroup: true });
             }}
           >
-            + 그룹 추가하기
+            그룹 추가하기
           </button>
         </div>
       </div>

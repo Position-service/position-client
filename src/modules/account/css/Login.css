@@ -73,6 +73,7 @@ body {
 
 .button-login:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .button-signup {
@@ -86,6 +87,7 @@ body {
 
 .button-signup:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .a-password {
@@ -96,4 +98,18 @@ body {
   text-decoration: none;
   align-self: center;
   color: #000000;
+}
+
+.a-password:hover {
+  cursor: pointer;
+}
+
+.a-password p {
+  position: relative;
+  top: 1vh;
+}
+
+.a-password p:hover{
+  cursor: pointer;
+  border-bottom: solid 1px #000000;
 }

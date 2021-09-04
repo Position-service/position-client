@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import ServerContext from '../../contexts/ServerContext';
 import SignUpTemplate from './SignUpTemplate';
 
-interface Props {}
+interface Props { }
 
 const SignUp: React.FunctionComponent = (props: Props) => {
   const { server } = useContext(ServerContext);
