@@ -32,30 +32,32 @@ p {
   height: 66vh;
   overflow-y: scroll;
   padding-bottom: 6vh;
+  padding-right: 0;
 }
 
 .addgroup-button-wrapper {
-  background-color: #fff;
+  /* background-color: #fff; */
   position: fixed;
   display: flex;
   flex-direction: row;
-  bottom: 9.5vh;
+  bottom: 10.5vh;
   width: 25vw;
   min-width: 270px;
   justify-content: center;
-  align-items: center;
+  /* align-items: right; */
 }
 
 .addgroup-button {
   font-family: 'Notosans-Regular';
   margin: 5px;
-  height: 3.2vh;
+  height: 4vh;
   width: max-content;
   border: 0;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0px 3px 6px #00000020;
   z-index: 10;
+  padding: 1vh 2vw 1vh 2vw;
 }
 
 .addgroup-button:hover {
@@ -119,4 +121,8 @@ p {
   display: flex;
   width: 2vw;
   min-width: 10%;
+}
+
+.todogroup-title img:hover {
+  cursor: pointer;
 }
