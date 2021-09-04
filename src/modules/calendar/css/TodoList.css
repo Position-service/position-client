@@ -5,8 +5,6 @@ p {
 
 .wrapper-todolist {
   position: relative;
-  left: 5vh;
-  width: 25vw;
   height: 88vh;
 }
 
