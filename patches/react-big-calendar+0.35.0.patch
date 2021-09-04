@@ -21238,7 +21238,7 @@ index 7a13ed8..f09175f 100644
        onClick: this.navigate.bind(null, _constants.navigate.NEXT)
      }, messages.next)), _react.default.createElement("span", {
 diff --git a/node_modules/react-big-calendar/lib/css/react-big-calendar.css b/node_modules/react-big-calendar/lib/css/react-big-calendar.css
-index a8aed1d..f0e6119 100644
+index a8aed1d..57534f3 100644
 --- a/node_modules/react-big-calendar/lib/css/react-big-calendar.css
 +++ b/node_modules/react-big-calendar/lib/css/react-big-calendar.css
 @@ -2,100 +2,145 @@
@@ -21678,13 +21678,13 @@ index a8aed1d..f0e6119 100644
  
  .rbc-show-more {
 -  background-color: rgba(255, 255, 255, 0.3);
-+  /* background-color: rgba(255, 255, 255, 0.3);
++  text-decoration: none;
 +  z-index: 4;
-+  font-weight: bold;
-+  font-size: 85%;
++  color: #6B6B6B;
++  font-size: 0.8em;
++  font-family: 'NotoSans-Regular';
 +  height: auto;
-+  line-height: normal; */
-+  display: hidden;
++  line-height: normal;
 +}
 +
 +a.rbc-show-more {
@@ -22055,13 +22055,13 @@ index a8aed1d..f0e6119 100644
 -  display: none; }
 +  display: none;
 +}
++
++.rbc-time-view-resources .rbc-day-slot {
++  min-width: 140px;
++}
  
  .rbc-time-view-resources .rbc-day-slot {
 -  min-width: 140px; }
-+  min-width: 140px;
-+}
-+
-+.rbc-time-view-resources .rbc-day-slot {
 +  height: 3vh;
 +}
  
