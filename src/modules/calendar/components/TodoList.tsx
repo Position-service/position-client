@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { TaskGroup } from '../../../types/Task';
 import '../css/TodoList.css';
 import TodoGroup from './TodoGroup';
+import closeIcon from '../../account/img/icon-close.png';
+import closeIcon2x from '../../account/img/icon-close@2x.png';
 
 interface Props {}
 
@@ -77,7 +79,15 @@ const TodoList = (props: Props) => {
                 setState({ ...state, addGroup: false });
               }}
             >
-              X
+              <img
+                className="icon-close"
+                alt="close_icon"
+                src={closeIcon}
+                srcSet={`${closeIcon} 1x, ${closeIcon2x} 2x`}
+                style={{
+                  width: '0.9em',
+                }}
+              />
             </button>
           </div>
         )}
