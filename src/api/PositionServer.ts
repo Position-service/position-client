@@ -39,4 +39,8 @@ export default class Server {
   refreshToken = (token: string): Promise<AxiosResponse<TokenResponse>> => {
     return client.post('/api/users/refresh-token', { token });
   };
+
+  confirmEmail = (key: string): Promise<AxiosResponse<TokenResponse>> => {
+    return client.get(`/api/users/confirmEmail?key=${key}`);
+  };
 }
