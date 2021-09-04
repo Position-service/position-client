@@ -42,11 +42,11 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/main">
-            <Main />
-          </Route>
-          <Route path="/verified">
+          <Route path="/verification">
             <VerifiedUser />
+          </Route>
+          <Route>
+            <Main />
           </Route>
         </Switch>
       </Router>
