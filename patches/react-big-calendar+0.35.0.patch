@@ -12,10 +12,10 @@ index ef5b882..65e381e 100644
      });
    };
 diff --git a/node_modules/react-big-calendar/lib/Toolbar.js b/node_modules/react-big-calendar/lib/Toolbar.js
-index 7a13ed8..b010911 100644
+index 7a13ed8..f09175f 100644
 --- a/node_modules/react-big-calendar/lib/Toolbar.js
 +++ b/node_modules/react-big-calendar/lib/Toolbar.js
-@@ -51,9 +51,6 @@ function (_React$Component) {
+@@ -51,12 +51,9 @@ function (_React$Component) {
      }, _react.default.createElement("span", {
        className: "rbc-btn-group"
      }, _react.default.createElement("button", {
@@ -24,12 +24,16 @@ index 7a13ed8..b010911 100644
 -    }, messages.today), _react.default.createElement("button", {
        type: "button",
        onClick: this.navigate.bind(null, _constants.navigate.PREVIOUS)
-     }, messages.previous), _react.default.createElement("button", {
+-    }, messages.previous), _react.default.createElement("button", {
++    }, "<"), _react.default.createElement("button", {
+       type: "button",
+       onClick: this.navigate.bind(null, _constants.navigate.NEXT)
+     }, messages.next)), _react.default.createElement("span", {
 diff --git a/node_modules/react-big-calendar/lib/css/react-big-calendar.css b/node_modules/react-big-calendar/lib/css/react-big-calendar.css
-index a8aed1d..a68b19f 100644
+index a8aed1d..f0e6119 100644
 --- a/node_modules/react-big-calendar/lib/css/react-big-calendar.css
 +++ b/node_modules/react-big-calendar/lib/css/react-big-calendar.css
-@@ -2,100 +2,137 @@
+@@ -2,100 +2,145 @@
  .rbc-btn {
    color: inherit;
    font: inherit;
@@ -55,6 +59,14 @@ index a8aed1d..a68b19f 100644
 -  padding: 0; }
 +  padding: 0;
 +}
++
++  
++@media screen and (max-width: 1000px) { 
++  .section-calender{
++    display: none;
++  }
++}
++
  
  .rbc-calendar {
    box-sizing: border-box;
@@ -203,7 +215,7 @@ index a8aed1d..a68b19f 100644
  
  .rbc-toolbar {
    display: flex;
-@@ -103,144 +140,213 @@ button.rbc-input::-moz-focus-inner {
+@@ -103,144 +148,213 @@ button.rbc-input::-moz-focus-inner {
    justify-content: center;
    align-items: center;
    margin-bottom: 10px;
@@ -459,21 +471,21 @@ index a8aed1d..a68b19f 100644
  .rbc-show-more {
 -  background-color: rgba(255, 255, 255, 0.3);
 +  /* background-color: rgba(255, 255, 255, 0.3);
-   z-index: 4;
-   font-weight: bold;
-   font-size: 85%;
-   height: auto;
--  line-height: normal; }
++  z-index: 4;
++  font-weight: bold;
++  font-size: 85%;
++  height: auto;
 +  line-height: normal; */
 +  display: hidden;
 +}
 +
 +a.rbc-show-more {
 +  /* background-color: rgba(255, 255, 255, 0.3);
-+  z-index: 4;
-+  font-weight: bold;
-+  font-size: 85%;
-+  height: auto;
+   z-index: 4;
+   font-weight: bold;
+   font-size: 85%;
+   height: auto;
+-  line-height: normal; }
 +  line-height: normal; */
 +  display: hidden;
 +}
@@ -502,7 +514,7 @@ index a8aed1d..a68b19f 100644
  
  .rbc-month-row {
    display: flex;
-@@ -249,191 +355,265 @@ button.rbc-input::-moz-focus-inner {
+@@ -249,191 +363,265 @@ button.rbc-input::-moz-focus-inner {
    flex: 1 0 0;
    flex-basis: 0px;
    overflow: hidden;
@@ -835,13 +847,13 @@ index a8aed1d..a68b19f 100644
 -  display: none; }
 +  display: none;
 +}
-+
-+.rbc-time-view-resources .rbc-day-slot {
-+  min-width: 140px;
-+}
  
  .rbc-time-view-resources .rbc-day-slot {
 -  min-width: 140px; }
++  min-width: 140px;
++}
++
++.rbc-time-view-resources .rbc-day-slot {
 +  height: 3vh;
 +}
  
@@ -877,7 +889,7 @@ index a8aed1d..a68b19f 100644
  
  .rbc-slot-selection {
    z-index: 10;
-@@ -442,83 +622,114 @@ button.rbc-input::-moz-focus-inner {
+@@ -442,83 +630,114 @@ button.rbc-input::-moz-focus-inner {
    color: white;
    font-size: 75%;
    width: 100%;
@@ -1042,7 +1054,7 @@ index a8aed1d..a68b19f 100644
  
  .rbc-current-time-indicator {
    position: absolute;
-@@ -527,4 +738,5 @@ button.rbc-input::-moz-focus-inner {
+@@ -527,4 +746,5 @@ button.rbc-input::-moz-focus-inner {
    right: 0;
    height: 1px;
    background-color: #74ad31;
