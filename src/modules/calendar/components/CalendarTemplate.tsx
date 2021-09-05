@@ -23,24 +23,24 @@ const CalendarTemplate = (props: Props) => {
       allDay: false,
       color: '#8BEFE6',
     },
-    {
-      title: 'title2',
-      start: new Date(Date.now()),
-      end: new Date(Date.now() + 3 * (60 * 60 * 1000)),
-      allDay: false,
-      color: '#8BEFE6',
-    },
+    // {
+    //   title: 'title2',
+    //   start: new Date(Date.now()),
+    //   end: new Date(Date.now() + 2 * (60 * 60 * 1000)),
+    //   allDay: false,
+    //   color: '#8BEFE6',
+    // },
+    // {
+    //   title: 'title4',
+    //   start: new Date(Date.now()),
+    //   end: new Date(Date.now() + 3 * (60 * 60 * 1000)),
+    //   allDay: false,
+    //   color: '#8BEFE6',
+    // },
     {
       title: 'title4',
       start: new Date(Date.now()),
-      end: new Date(Date.now() + 3 * (60 * 60 * 1000)),
-      allDay: false,
-      color: '#8BEFE6',
-    },
-    {
-      title: 'title4',
-      start: new Date(Date.now()),
-      end: new Date(Date.now() + 3 * (60 * 60 * 1000)),
+      end: new Date(Date.now() + 4 * (60 * 60 * 1000)),
       allDay: false,
       color: '#8BEFE6',
     },
@@ -97,11 +97,11 @@ const CalendarTemplate = (props: Props) => {
             overflow: 'hidden',
           }}
           popup={true}
-          resources={[
-            { color: '#8BEFE6' },
-            { color: '#FF5757' },
-            { color: '#5A72FF' },
-          ]}
+          // resources={[
+          //   { color: '#8BEFE6' },
+          //   { color: '#FF5757' },
+          //   { color: '#5A72FF' },
+          // ]}
         />
       </section>
     </>
