@@ -1,2 +1,2 @@
-![Landing page – 2](https://user-images.githubusercontent.com/63248548/132120464-1de4b77b-70c3-4e77-b234-f53a071048dd.png)
+![Landing page – 2](https://user-images.githubusercontent.com/63248548/132120594-85feb150-ea76-42d7-9302-da910ee9709e.png)
 
