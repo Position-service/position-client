@@ -4,6 +4,7 @@ import './css/VerifiedUser.css';
 interface Props {
   buttonHandler: () => void;
   message: React.ReactNode;
+  buttonName: string;
 }
 
 const VerifiedUserTemplate = (props: Props) => {
@@ -16,7 +17,7 @@ const VerifiedUserTemplate = (props: Props) => {
 
         <div className="alert-message">{props.message}</div>
         <button className="confirm-button" onClick={props.buttonHandler}>
-          메인으로
+          {props.buttonName}
         </button>
       </div>
     </section>

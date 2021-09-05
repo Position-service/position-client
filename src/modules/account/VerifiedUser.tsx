@@ -2,12 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import ServerContext from '../../contexts/ServerContext';
 import VerifiedUserTemplate from './VerifiedUserTemplate';
+import ReactLoading from 'react-loading';
+import useWindowDimensions from '../../hooks/useWindowDimension';
 
 interface Props {}
-
-type ParamTypes = {
-  key: string;
-};
 
 interface State {
   confirmed: boolean;
@@ -23,6 +21,7 @@ const VerifiedUser = (_props: Props) => {
   const query = new URLSearchParams(useLocation().search);
   const key = query.get('key');
   const { server, setServer } = useContext(ServerContext);
+  const { width, height } = useWindowDimensions();
 
   const successHandler = () => {
     history.push('/main');
@@ -63,9 +62,27 @@ const VerifiedUser = (_props: Props) => {
     <VerifiedUserTemplate
       buttonHandler={state.success ? successHandler : resendHandler}
       message={state.success ? successMessage : resendMessage}
+      buttonName={state.success ? '메인으로' : '메일 재전송'}
     />
   ) : (
-    <> 확인중 </>
+    <div
+      style={{
+        width: width,
+        height: height,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'relative',
+        top: '-10vh',
+      }}
+    >
+      <ReactLoading
+        type={'bubbles'}
+        color={'#59F87E'}
+        height={'20%'}
+        width={'20%'}
+      />
+    </div>
   );
 };
 
