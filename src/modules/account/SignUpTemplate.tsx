@@ -55,6 +55,7 @@ const SignUpTemplate: React.FunctionComponent<Props> = (props: Props) => {
             changeHandler={(input: string) => {
               setSignUpInfo({ ...signUpInfo, password: input });
             }}
+            secure={true}
           />
           <p className="remind-verify-mail">
             {'비밀번호는 8~16자의 영문, 숫자를 조합하여 사용하십시오.'}
@@ -65,6 +66,7 @@ const SignUpTemplate: React.FunctionComponent<Props> = (props: Props) => {
             changeHandler={(input: string) => {
               setSignUpInfo({ ...signUpInfo, passwordCheck: input });
             }}
+            secure={true}
           />
         </div>
         <button

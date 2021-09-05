@@ -5,6 +5,7 @@ interface Props {
   name: string;
   value: string;
   changeHandler: (input: string) => void;
+  secure?: boolean;
 }
 
 const InputField: React.FunctionComponent<Props> = (props: Props) => {
@@ -16,6 +17,7 @@ const InputField: React.FunctionComponent<Props> = (props: Props) => {
         props.changeHandler(e.target.value);
       }}
       placeholder={props.name}
+      type={props.secure ? 'password' : undefined}
     />
   );
 };

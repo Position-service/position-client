@@ -39,6 +39,7 @@ export const LoginTemplate: React.FunctionComponent<Props> = (props: Props) => {
               changeHandler={(input: string) => {
                 setLoginInfo({ ...loginInfo, password: input });
               }}
+              secure={true}
             />
             <button
               className="button-login"
