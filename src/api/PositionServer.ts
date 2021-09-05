@@ -43,4 +43,8 @@ export default class Server {
   confirmEmail = (key: string): Promise<AxiosResponse<TokenResponse>> => {
     return client.get(`/api/users/confirmEmail?key=${key}`);
   };
+
+  resendEmail = (email: string): Promise<AxiosResponse> => {
+    return client.post('/api/users/emailAuth', { email });
+  };
 }
