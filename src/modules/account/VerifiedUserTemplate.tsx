@@ -3,6 +3,7 @@ import './css/VerifiedUser.css';
 
 interface Props {
   buttonHandler: () => void;
+  message: React.ReactNode;
 }
 
 const VerifiedUserTemplate = (props: Props) => {
@@ -13,10 +14,7 @@ const VerifiedUserTemplate = (props: Props) => {
           <div className="position-logo-green" />
         </div>
 
-        <div className="alert-message">
-          <p>인증에 성공했습니다!</p>
-          <p>포지션 회원가입을 축하드립니다.</p>
-        </div>
+        <div className="alert-message">{props.message}</div>
         <button className="confirm-button" onClick={props.buttonHandler}>
           메인으로
         </button>

@@ -47,7 +47,6 @@ body {
 .alert-message {
   font-size: 17px;
   font-family: 'NotoSans-Regular';
-  line-height: 30%;
 }
 
 .confirm-button {
