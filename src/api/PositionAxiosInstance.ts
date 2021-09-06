@@ -9,7 +9,7 @@ export const authenticatedClient = (
 ) => {
   const axiosInstance = axios.create({
     baseURL,
-    headers: { authorization: token },
+    headers: { authorization: `Bearer ${token}` },
   });
 
   axiosInstance.interceptors.response.use(
