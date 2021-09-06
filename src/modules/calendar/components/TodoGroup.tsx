@@ -19,7 +19,7 @@ interface GroupState {
   onEdit: boolean;
   groupName: string;
   newName: string;
-  itemList: TaskItem[];
+  tasks: TaskItem[];
   addItem: boolean;
 }
 
@@ -122,7 +122,7 @@ const TodoGroup = (groupProps: GroupProps) => {
     onEdit: false,
     groupName: groupProps.group.title,
     newName: groupProps.group.title,
-    itemList: groupProps.group.itemList,
+    tasks: groupProps.group.tasks,
     addItem: false,
   });
 
@@ -197,7 +197,7 @@ const TodoGroup = (groupProps: GroupProps) => {
       </div>
       {state.showItem && (
         <>
-          {state.itemList.map((item, index) => (
+          {state.tasks.map((item, index) => (
             <TodoItem key={index} item={item} />
           ))}
 
@@ -206,8 +206,8 @@ const TodoGroup = (groupProps: GroupProps) => {
             onClick={() => {
               setState({
                 ...state,
-                itemList: [
-                  ...state.itemList,
+                tasks: [
+                  ...state.tasks,
                   {
                     id: 0,
                     title: '새 할 일',

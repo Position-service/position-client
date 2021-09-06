@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TaskGroup } from '../../../types/Task';
 import '../css/TodoList.css';
 import TodoGroup from './TodoGroup';
 import closeIcon from '../../account/img/icon-close.png';
 import closeIcon2x from '../../account/img/icon-close@2x.png';
+import UserContext from '../../../contexts/UserContext';
 
 interface Props {}
 
@@ -16,21 +17,10 @@ interface State {
 const TodoList = (props: Props) => {
   const today = new Date().toLocaleDateString();
 
-  const testItemList = [
-    { id: 1, title: '수정하기', isDone: false },
-    { id: 2, title: '개발하기', isDone: false },
-  ];
-
-  const testGroupList = [
-    {
-      id: 10,
-      title: '그룹',
-      itemList: testItemList,
-    },
-  ];
+  const { user } = useContext(UserContext);
 
   const [state, setState] = useState<State>({
-    groupList: testGroupList,
+    groupList: user.groups ? user.groups : [],
     addGroup: false,
     newGroupName: '새 그룹 이름',
   });
@@ -43,7 +33,7 @@ const TodoList = (props: Props) => {
       </div>
       <div className="background-todolist">
         {state.groupList.map((group, index) => (
-          <TodoGroup group={group} />
+          <TodoGroup group={group} key={index} />
         ))}
         {state.addGroup && (
           <div className="newgroup-modal">
@@ -64,7 +54,7 @@ const TodoList = (props: Props) => {
                     {
                       id: 0,
                       title: state.newGroupName,
-                      itemList: [],
+                      tasks: [],
                     },
                   ],
                   addGroup: false,
