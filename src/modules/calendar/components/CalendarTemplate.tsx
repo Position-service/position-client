@@ -23,22 +23,8 @@ const CalendarTemplate = (props: Props) => {
       allDay: false,
       color: '#8BEFE6',
     },
-    // {
-    //   title: 'title2',
-    //   start: new Date(Date.now()),
-    //   end: new Date(Date.now() + 2 * (60 * 60 * 1000)),
-    //   allDay: false,
-    //   color: '#8BEFE6',
-    // },
-    // {
-    //   title: 'title4',
-    //   start: new Date(Date.now()),
-    //   end: new Date(Date.now() + 3 * (60 * 60 * 1000)),
-    //   allDay: false,
-    //   color: '#8BEFE6',
-    // },
     {
-      title: 'title4',
+      title: '포지션 개발',
       start: new Date(Date.now()),
       end: new Date(Date.now() + 4 * (60 * 60 * 1000)),
       allDay: false,
@@ -97,11 +83,7 @@ const CalendarTemplate = (props: Props) => {
             overflow: 'hidden',
           }}
           popup={true}
-          // resources={[
-          //   { color: '#8BEFE6' },
-          //   { color: '#FF5757' },
-          //   { color: '#5A72FF' },
-          // ]}
+          onSelectEvent={(e) => console.log(e)}
         />
       </section>
     </>

@@ -21244,26 +21244,30 @@ index ef5b882..65e381e 100644
      });
    };
 diff --git a/node_modules/react-big-calendar/lib/TimeGridEvent.js b/node_modules/react-big-calendar/lib/TimeGridEvent.js
-index aea2c0d..4156919 100644
+index aea2c0d..a9087d4 100644
 --- a/node_modules/react-big-calendar/lib/TimeGridEvent.js
 +++ b/node_modules/react-big-calendar/lib/TimeGridEvent.js
-@@ -46,11 +46,14 @@ function TimeGridEvent(props) {
+@@ -46,13 +46,16 @@ function TimeGridEvent(props) {
        top = style.top,
        width = style.width,
        xOffset = style.xOffset;
 -  var inner = [_react.default.createElement("div", {
 +  var inner = [ _react.default.createElement("div", {
      key: "1",
+-    className: "rbc-event-label"
+-  }, label), _react.default.createElement("div", {
 +    className: "rbc-event-dot"}), 
 +    _react.default.createElement("div", {
-+    key: "2",
-     className: "rbc-event-label"
-   }, label), _react.default.createElement("div", {
--    key: "2",
-+    key: "3",
+     key: "2",
      className: "rbc-event-content"
-   }, Event ? _react.default.createElement(Event, {
+-  }, Event ? _react.default.createElement(Event, {
++  }, _react.default.createElement("div", {
++    key: "3",
++    className: "rbc-event-label"
++  }, label),Event ? _react.default.createElement(Event, {
      event: event,
+     title: title
+   }) : title)];
 diff --git a/node_modules/react-big-calendar/lib/Toolbar.js b/node_modules/react-big-calendar/lib/Toolbar.js
 index 7a13ed8..4db5a92 100644
 --- a/node_modules/react-big-calendar/lib/Toolbar.js
@@ -21326,10 +21330,10 @@ index 7a13ed8..4db5a92 100644
      }
    };
 diff --git a/node_modules/react-big-calendar/lib/css/react-big-calendar.css b/node_modules/react-big-calendar/lib/css/react-big-calendar.css
-index a8aed1d..4aa56f6 100644
+index a8aed1d..db25cde 100644
 --- a/node_modules/react-big-calendar/lib/css/react-big-calendar.css
 +++ b/node_modules/react-big-calendar/lib/css/react-big-calendar.css
-@@ -2,245 +2,414 @@
+@@ -2,245 +2,415 @@
  .rbc-btn {
    color: inherit;
    font: inherit;
@@ -21775,6 +21779,7 @@ index a8aed1d..4aa56f6 100644
 +  font-size: 0.8em;
 +  font-family: 'NotoSans-Regular';
 +  padding: 0px 5px;
++  overflow: hidden;
 +}
  
  .rbc-event-overlaps {
@@ -21870,7 +21875,7 @@ index a8aed1d..4aa56f6 100644
  
  .rbc-month-row {
    display: flex;
-@@ -249,191 +418,288 @@ button.rbc-input::-moz-focus-inner {
+@@ -249,191 +419,288 @@ button.rbc-input::-moz-focus-inner {
    flex: 1 0 0;
    flex-basis: 0px;
    overflow: hidden;
@@ -22271,7 +22276,7 @@ index a8aed1d..4aa56f6 100644
  
  .rbc-slot-selection {
    z-index: 10;
-@@ -442,83 +708,114 @@ button.rbc-input::-moz-focus-inner {
+@@ -442,83 +709,114 @@ button.rbc-input::-moz-focus-inner {
    color: white;
    font-size: 75%;
    width: 100%;
@@ -22436,7 +22441,7 @@ index a8aed1d..4aa56f6 100644
  
  .rbc-current-time-indicator {
    position: absolute;
-@@ -526,5 +823,6 @@ button.rbc-input::-moz-focus-inner {
+@@ -526,5 +824,6 @@ button.rbc-input::-moz-focus-inner {
    left: 0;
    right: 0;
    height: 1px;
