@@ -7,5 +7,5 @@ export type TaskItem = {
 export type TaskGroup = {
   id: number;
   title: string;
-  itemList: TaskItem[];
+  tasks: TaskItem[];
 };

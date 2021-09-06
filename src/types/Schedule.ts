@@ -1,7 +1,17 @@
 export type Schedule = {
+  id: number;
   title: string;
-  start: Date;
-  end: Date;
-  allDay?: boolean;
-  resource?: any;
+  content: string;
+  dateToStart: Date;
+  dateToEnd: Date;
+  tagColor: string;
+  isAllDay: boolean;
+  isPublic: boolean;
+  users: Participant[];
+};
+
+type Participant = {
+  id: number;
+  nickname: string;
+  email: string;
 };
