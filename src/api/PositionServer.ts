@@ -47,4 +47,8 @@ export default class Server {
   resendEmail = (email: string): Promise<AxiosResponse> => {
     return client.post('/api/users/emailAuth', { email });
   };
+
+  fetchAllData = (): Promise<AxiosResponse> => {
+    return this.authenticatedClient.get('/api/users/fetchAllData');
+  };
 }

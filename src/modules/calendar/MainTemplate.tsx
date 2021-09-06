@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import AlertModal from '../account/components/AlertModal';
 import PasswordChangeModal from '../account/components/PasswordChangeModal';
 import CalendarTemplate from './components/CalendarTemplate';
@@ -6,6 +6,7 @@ import Header from './components/Header';
 import TodoList from './components/TodoList';
 import VerifyModal from '../account/components/VerifyModal';
 import './css/Main.css';
+import UserContext from '../../contexts/UserContext';
 
 interface Props {
   logoutHandler: () => void;
@@ -14,13 +15,14 @@ interface Props {
 const MainTemplate: React.FunctionComponent<Props> = (props: Props) => {
   const [modalVisible, setModalVisible] = useState(true);
   const [passwordModalVisible, setPasswordModalVisible] = useState(false);
+  const { user } = useContext(UserContext);
 
   return (
     <>
       <div className="page-main">
         <Header
           verified={false}
-          nickname={'Minji'}
+          nickname={user.nickName}
           logoutHandler={props.logoutHandler}
           passwordChangeHandler={() => setPasswordModalVisible(true)}
         />
