@@ -25,6 +25,43 @@ const TodoList = (props: Props) => {
     newGroupName: '새 그룹 이름',
   });
 
+  const addNewGroup = () => {
+    setState({
+      ...state,
+      groupList: [
+        ...state.groupList,
+        {
+          id: 0,
+          title: state.newGroupName,
+          tasks: [],
+        },
+      ],
+      addGroup: false,
+    });
+  };
+
+  const noGroup = (
+    <div
+      style={{
+        display: 'flex',
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+      }}
+    >
+      <p
+        style={{
+          alignItems: 'center',
+          fontFamily: 'NotoSans-Regular',
+          color: '#707070',
+          fontSize: '0.9em',
+        }}
+      >
+        새 그룹을 추가해주세요!
+      </p>
+    </div>
+  );
+
   return (
     <div className="wrapper-todolist">
       <div className="title-todolist">
@@ -32,9 +69,11 @@ const TodoList = (props: Props) => {
         <p style={{ fontFamily: 'NotoSans', marginTop: 2 }}>{today}</p>
       </div>
       <div className="background-todolist">
-        {state.groupList.map((group, index) => (
-          <TodoGroup group={group} key={index} />
-        ))}
+        {state.groupList.length > 0 &&
+          state.groupList.map((group, index) => (
+            <TodoGroup group={group} key={index} />
+          ))}
+        {!state.addGroup && state.groupList.length === 0 && noGroup}
         {state.addGroup && (
           <div className="newgroup-modal">
             <input
@@ -44,23 +83,7 @@ const TodoList = (props: Props) => {
                 setState({ ...state, newGroupName: e.target.value });
               }}
             ></input>
-            <button
-              className="newgroup-add-button"
-              onClick={() => {
-                setState({
-                  ...state,
-                  groupList: [
-                    ...state.groupList,
-                    {
-                      id: 0,
-                      title: state.newGroupName,
-                      tasks: [],
-                    },
-                  ],
-                  addGroup: false,
-                });
-              }}
-            >
+            <button className="newgroup-add-button" onClick={addNewGroup}>
               추가
             </button>
             <button
